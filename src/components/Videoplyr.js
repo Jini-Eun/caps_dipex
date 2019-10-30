@@ -81,6 +81,7 @@ class video extends Component {
                         id="player"
                         playsinline
                         controls
+                        controlsList="nodownload"
                       >
                         <source
                           src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4"
