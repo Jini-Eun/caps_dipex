@@ -1,0 +1,45 @@
+
+
+.menubar {
+	background : #EBEBEB;
+	width : 20%;
+	height : 100%;
+	position : fixed;
+	display : inline-block;
+}
+
+.submenu {  
+	display: none;
+	width: 50px;
+	position:absolute;
+	color : gray;
+}
+
+.menuitem:hover .submenu {
+	display: block;
+	/* 메뉴를 클릭하면 하위메뉴의 배경색상을 설정한다.*/
+	background-color:white;
+	color : gray;
+}
+
+.menubar ul { /* 여백과 패딩 모두 0 */
+	margin : 50;
+	padding : 0;
+}
+.menubar ul li {
+	display: inline-block;
+	list-style-type : none; /* 마커 삭제 */
+	padding : 0px 15px; /* top=bottom=0, left=right=15px */
+}
+.menubar ul li a {
+	color :black;
+	text-decoration : none; /* 링크 보이지 않게 */
+}
+.menubar ul li a:hover {
+	color : lightslategray; /* 마우스 올라 갈 때 색 */
+}
+.videop table {
+	width : 80%; 
+	border : 0; 
+
+}
