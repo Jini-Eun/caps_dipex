@@ -22,7 +22,10 @@ class video extends Component {
           <table id="table" align="right" cellspacing="10" cellpadding="10">
             <thead height="10%">
               <tr>
-                <th colspan="2" align="left">Health4U</th>
+                <th colspan="2" align="left">
+                  <img src = "/caps-dipex/images/logo.gif"/>
+                  {/*Error: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text*/}
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -76,9 +79,15 @@ class video extends Component {
             </tbody>
             <tfoot height="5%" width="100%" position="static" bottom="0" align="center">
               <tr>
-                <th colspan="2">powered by <a href="https://plyr.io/" rel="noopener noreferrer" target="_blank">
-                  <strong> {this.props.name} </strong>
-                </a></th>
+                <td heigh="167" colspan="4" align="center">
+                  <hr/>
+                  <th colspan="2">
+                    <strong>copyrightⓒ 2019. Team dipex(by.김은진, 김지형, 정유경, 조창연). All rights reserved. Dankook University(From Capstone Design Class)</strong>
+                    <br/><br/>
+                      powered by <a href="https://plyr.io/">
+                      <strong> {this.props.name} </strong>
+                    </a></th>
+                </td>
               </tr>
             </tfoot>
           </table>
