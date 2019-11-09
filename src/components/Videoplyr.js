@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import './Video.css';
+import logo from '../images/logo.gif'
 //import Plyr from 'plyr';
 
 class video extends Component {
@@ -23,7 +24,7 @@ class video extends Component {
             <thead height="10%">
               <tr>
                 <th colspan="2" align="left">
-                  <img src = "/caps-dipex/images/logo.gif"/>
+                  <img src = {logo} alt="can't find"/>
                   {/*Error: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text*/}
                 </th>
               </tr>
