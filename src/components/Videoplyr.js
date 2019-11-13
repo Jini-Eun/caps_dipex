@@ -88,7 +88,35 @@ class video extends Component {
                     src="/path/to/captions.vtt"
                     srclang="en"
                     default
-                  />
+
+        <div className="videop">
+          <table id="table" align="right" cellspacing="10" cellpadding="10">
+            <thead height="10%">
+              <tr>
+                <th colspan="2" align="left">
+                  <img src = {logo} alt="can't find"/>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr bgcolor="#EBEBEB">
+                <td colspan="2">
+                  <strong class="strong">[성별]</strong>{" "}
+                  <span class="main">홍길동</span>
+                  <br />
+                  <strong class="strong">[인터뷰 당시 연령]</strong>{" "}
+                  <span class="main">50세</span>
+                  <br />
+                  <strong class="strong">[진단 시 연령]</strong>{" "}
+                  <span class="main">40세</span>
+                  <br />
+                </td>
+              </tr>
+              <tr height="75%">
+                <td width="50%">for video player<br /><br />
+                  <link
+                    rel="stylesheet"
+                    href=" https://cdn.plyr.io/3.5.6/plyr.css "/>
                 </video>
               </div>
               <div class="script"><p><strong>[Script about Video Player]</strong><br /></p></div>
