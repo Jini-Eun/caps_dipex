@@ -96,7 +96,7 @@ class video extends Component {
           </div>)}
         <div id="foot">
           <hr />
-          <strong>copyrightⓒ 2019. Team dipex(by.김은진, 김지형, 정유경, 조창연). All rights reserved. <br />Dankook University(From Capstone Design Class)</strong>
+          <strong>copyrightⓒ 2019. Team dipex(by.김은진, 김지형, 정유경, 조창연). All rights reserved. <br />Dankook University Capstone Design</strong>
           <br /><br />powered by <a href="https://plyr.io/">
             <strong> {this.props.name} </strong></a>
         </div>
