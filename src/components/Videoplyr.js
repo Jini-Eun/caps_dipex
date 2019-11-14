@@ -12,7 +12,6 @@ class video extends Component {
         <div id="menubar">
           <div class="ui menu">
             <img src={logo} alt="can't find" />
-            {/*Error: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text*/}
             <div class="item"></div>
             <a class="item" href onClick={() => this.setState({ showing: !showing })}>
               {showing ? '' : ''}당뇨병</a>
