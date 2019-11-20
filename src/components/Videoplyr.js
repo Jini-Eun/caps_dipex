@@ -12,14 +12,14 @@ class video extends Component {
     interview_list: {},
     subs: ["당뇨병", "유방암", "위암"],
   }
-  getData() {
-    axios.get(`http://api.roamgom.net/api/interview/${this.state.disease_name}/`)
-      .then(response => { this.setState({ interview_list: response.data.results }); console.log(this.state.interview_list) })
-      .catch(response => { console.log(response) });
+  async getData() {
+     const data = await axios.get(`http://api.roamgom.net/api/interview/${this.state.disease_name}/`)
+     console.log(data)
+     this.setState({interview_list: data.data.results })
   }
   render() {
     const { showing } = this.state;
-    const subList = this.state.subs.map((subs, index) => (<a class="item" href onClick={() => this.setState({ showing: !showing, disease_name: { subs } })}>
+    const subList = this.state.subs.map((subs, index) => (<a class="item" href onClick={() => this.setState({ showing: !showing, disease_name: subs })}>
       {showing ? '' : ''} {subs}</a>)
     );
     return (
