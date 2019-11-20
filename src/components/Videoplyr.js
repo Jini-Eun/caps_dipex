@@ -1,10 +1,21 @@
 import React, { Component } from "react";
+import axios from 'axios';
+
 import './Video.css';
 import logo from '../images/logo.gif'
 //import Plyr from 'plyr';
 
 class video extends Component {
-  state = { showing: false }
+  state = { 
+    showing: false,
+    disease_name: "",
+    interview_list: {},
+   }
+  getData() {
+    axios.get(`http://api.roamgom.net/api/interview/${this.state.disease_name}/`)
+    .then( response => { this.setState({interview_list: response.data.results }); console.log(this.state.interview_list) })
+    .catch( response => { console.log(response) });
+  }
   render() {
     const { showing } = this.state;
     return (
@@ -13,7 +24,7 @@ class video extends Component {
           <div class="ui menu">
             <img src={logo} alt="can't find" />
             <div class="item"></div>
-            <a class="item" href onClick={() => this.setState({ showing: !showing })}>
+            <a class="item" href onClick={() => this.setState({ showing: !showing, disease_name: "당뇨병" })}>
               {showing ? '' : ''}당뇨병</a>
             <a class="item" href>위암</a>
             <a class="item" href>유방암</a>
@@ -24,25 +35,17 @@ class video extends Component {
             <div id="sidebar">
               <div class="ui vertical menu">
                 <div class="item">
-                  <div class="header">연령별</div>
+                  <div class="header">인터뷰</div>
                   <div class="menu">
-                    <a class="item" href>20대</a>
-                    <a class="item" href>30대</a>
+                    <a class="item" href onClick={this.getData.bind(this)}>전체 목록</a>
+                    <a class="item" href>연령별</a>
                   </div>
                 </div>
                 <div class="item">
-                  <div class="header">증상별</div>
+                  <div class="header">인터뷰 목록</div>
                   <div class="menu">
-                    <a class="item" href>Rails</a>
-                    <a class="item" href>Python</a>
-                    <a class="item" href>PHP</a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="header">Hosting</div>
-                  <div class="menu">
-                    <a class="item" href>Shared</a>
-                    <a class="item" href>Dedicated</a>
+                    {/* List 나열 */}
+                    {/* <a class="item" href>{this.state.interview_list}</a> */}
                   </div>
                 </div>
               </div>
