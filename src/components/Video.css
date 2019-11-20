@@ -15,16 +15,15 @@
 
 #sidebar {
 	float: left;
-	width: 18%;
+	/*width: 35%;*/
 	margin-left: 10px;
-	margin-right: 10px;
+	margin-right: 50px;
 
 }
 
 #videop {
-	float : right;
-	width : 70%;
-	height : 80%;
+	width : 90%;
+	height : 100%;
 }
 .title{
 	border:2px solid #EBEBEB;

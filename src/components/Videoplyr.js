@@ -6,50 +6,51 @@ import logo from '../images/logo.gif'
 //import Plyr from 'plyr';
 
 class video extends Component {
-  state = { 
+  state = {
     showing: false,
     disease_name: "",
     interview_list: {},
-   }
+    subs: ["당뇨병", "유방암", "위암"],
+  }
   getData() {
     axios.get(`http://api.roamgom.net/api/interview/${this.state.disease_name}/`)
-    .then( response => { this.setState({interview_list: response.data.results }); console.log(this.state.interview_list) })
-    .catch( response => { console.log(response) });
+      .then(response => { this.setState({ interview_list: response.data.results }); console.log(this.state.interview_list) })
+      .catch(response => { console.log(response) });
   }
   render() {
     const { showing } = this.state;
+    const subList = this.state.subs.map((subs, index) => (<a class="item" href onClick={() => this.setState({ showing: !showing, disease_name: { subs } })}>
+      {showing ? '' : ''} {subs}</a>)
+    );
     return (
       <React.Fragment>
         <div id="menubar">
           <div class="ui menu">
             <img src={logo} alt="can't find" />
             <div class="item"></div>
-            <a class="item" href onClick={() => this.setState({ showing: !showing, disease_name: "당뇨병" })}>
-              {showing ? '' : ''}당뇨병</a>
-            <a class="item" href>위암</a>
-            <a class="item" href>유방암</a>
+            {subList}
+          </div>
+        </div>
+        <div id="sidebar">
+          <div class="ui vertical menu">
+            <div class="item">
+              <div class="header">인터뷰</div>
+              <div class="menu">
+                <a class="item" href onClick={this.getData.bind(this)}>전체 목록</a>
+                <a class="item" href>연령별</a>
+              </div>
+            </div>
+            <div class="item">
+              <div class="header">인터뷰 목록</div>
+              <div class="menu">
+                {/* List 나열 */}
+                {/* <a class="item" href>{this.state.interview_list}</a> */}
+              </div>
+            </div>
           </div>
         </div>
         {showing && (
           <div id="container">
-            <div id="sidebar">
-              <div class="ui vertical menu">
-                <div class="item">
-                  <div class="header">인터뷰</div>
-                  <div class="menu">
-                    <a class="item" href onClick={this.getData.bind(this)}>전체 목록</a>
-                    <a class="item" href>연령별</a>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="header">인터뷰 목록</div>
-                  <div class="menu">
-                    {/* List 나열 */}
-                    {/* <a class="item" href>{this.state.interview_list}</a> */}
-                  </div>
-                </div>
-              </div>
-            </div>
             <div id="videop">
               <div class="title">
                 <strong class="strong">[성별]</strong>{" "}
@@ -95,7 +96,8 @@ class video extends Component {
               </div>
               <div class="script"><p><strong>[Script about Video Player]</strong><br /></p></div>
             </div>
-          </div>)}
+          </div>
+        )}
         <div id="foot">
           <hr />
           <strong>copyrightⓒ 2019. Team dipex(by.김은진, 김지형, 정유경, 조창연). All rights reserved. <br />Dankook University Capstone Design</strong>
@@ -103,7 +105,7 @@ class video extends Component {
             <strong> {this.props.name} </strong></a>
         </div>
 
-      </React.Fragment >
+      </React.Fragment>
     );
   }
 }
