@@ -15,13 +15,21 @@ class Menu extends Component {
       {showing ? '' : ''} {subs}</a>)
     );
     return (
-      <div id="menubar">
-        <div class="ui menu">
-          <img src={logo} alt={this.props.error}/>
-          <div class="item"></div>
-          {subList}
+      <React.Fragment>
+        <div id="menubar">
+          <div class="ui menu">
+            <img src={logo} alt={this.props.error} />
+            <div class="item"></div>
+            {subList}
+          </div>
         </div>
-      </div>
+        <div id="foot">
+          <hr />
+          <strong>copyrightⓒ 2019. Team dipex(by.김은진, 김지형, 정유경, 조창연). All rights reserved. <br />Dankook University Capstone Design</strong>
+          <br /><br />powered by <a href="https://plyr.io/">
+            <strong> {this.props.video} </strong></a><br /><br />
+        </div>
+      </React.Fragment>
     );
   }
 }
