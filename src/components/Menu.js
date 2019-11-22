@@ -14,14 +14,14 @@ class Menu extends Component {
 
   render() {
     const subs = this.props.subs;
-    const subList = subs.map((subs) => (<a class="item" href data-disease={subs} onClick={this.diseaseChange}>{subs}</a>)
+    const subList = subs.map((subs, index) => (<a className="item" key={index} href data-disease={subs} onClick={this.diseaseChange}>{subs}</a>)
     );
     return (
       <React.Fragment>
         <div id="menubar">
-          <div class="ui menu">
+          <div className="ui menu">
             <img src={logo} alt={this.props.error} />
-            <div class="item"></div>
+            <div className="item"></div>
             {subList}
           </div>
         </div>

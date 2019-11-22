@@ -12,8 +12,8 @@ class App extends Component {
     this.changeCurrentInterview = this.changeCurrentInterview.bind(this);
     this.state = {
       disease_name: "",
-      interview_list:[],
-      currentInterview: {},
+      interview_list: [],
+      currentInterview: [],
       subs : ["당뇨병", "유방암", "위암"],
     }
   }
@@ -31,11 +31,13 @@ class App extends Component {
   render(){
     const subs = this.state.subs;
     const disease_name = this.state.disease_name;
+    const interview_list = this.state.interview_list;
+    const currentInterview = this.state.currentInterview;
     return (
       <div>
         <Menu error="Unable to mount image" subs={subs} onChangeDiseaseName={this.changeDiseaseName}/>
-        <Submenu interview="인터뷰" full_list="전체 목록" age="연령별" interview_list="인터뷰 목록" disease_name={disease_name} onChangeCurrentInterview={this.changeCurrentInterview} onChangeInterviewList={this.changeInterviewList}/>
-        <Videoplyr gender="[성별]" interview_age="[인터뷰 당시 연령]" diagnosis_age="[진단 시 연령]" />
+        <Submenu interview_list={interview_list} disease_name={disease_name} onChangeCurrentInterview={this.changeCurrentInterview} onChangeInterviewList={this.changeInterviewList}/>
+        <Videoplyr currentInterview={currentInterview}/>
       </div>
     );
   }

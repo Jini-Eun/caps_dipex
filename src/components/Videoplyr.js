@@ -3,24 +3,25 @@ import './Video.css';
 import './Menu.js';
 
 class Videoplyr extends Component {
+
   render() {
+    const currentInterview = this.props.currentInterview;
     return (
       <React.Fragment>
         <div id="container">
-          <div id="videop">caps
-            <div class="title">
+          <div id="videop">
+            <div className="title">
               <br />
-              <strong class="strong">&emsp; {this.props.gender}</strong>&ensp;
-                <span class="main">홍길동</span>
+              <strong className="strong">&emsp; [성별]</strong>&ensp;
+                <span className="main">{currentInterview.name}</span>
               <br /><br />
-              <strong class="strong">&emsp; {this.props.interview_age}</strong>&ensp;
-                <span class="main">50세</span>
+              <strong className="strong">&emsp; [인터뷰 당시 연령]</strong>&ensp;
+                <span className="main">{currentInterview.interviewage}</span>
               <br /><br />
-              <strong class="strong">&emsp; {this.props.diagnosis_age}</strong>&ensp;
-                <span class="main">40세</span>
+              <strong className="strong">&emsp; [진단 시 연령]</strong>&ensp; <span className="main">{currentInterview.age}</span>
               <br /><br />
             </div>
-            <div class="video">for video player<br /><br />
+            <div className="video">for video player<br /><br />
               <link
                 rel="stylesheet"
                 href=" https://cdn.plyr.io/3.5.6/plyr.css "
@@ -33,7 +34,7 @@ class Videoplyr extends Component {
                 height="320px"
                 poster="/path/to/poster.jpg"
                 id="player"
-                playsinline
+                playsInline
                 controls
                 controlsList="nodownload">
                 <source
@@ -45,11 +46,11 @@ class Videoplyr extends Component {
                   kind="captions"
                   label="English captions"
                   src="/path/to/captions.vtt"
-                  srclang="en"
-                  default/>
+                  srcLang="en"
+                  default />
               </video>
             </div>
-            <div class="script"><p><strong>[Script about Video Player]</strong><br /></p></div>
+            <div className="script"><p><strong>[Script about Video Player]</strong><br />{currentInterview.subtitle}</p></div>
           </div>
         </div>
       </React.Fragment>
