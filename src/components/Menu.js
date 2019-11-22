@@ -3,16 +3,19 @@ import './Menu.css';
 import logo from '../images/logo.gif'
 
 class Menu extends Component {
-  state = {
-    showing: false,
-    disease_name: "",
-    interview_list: {},
-    subs: ["당뇨병", "유방암", "위암"],
+  constructor(props){
+    super(props);
+    this.diseaseChange = this.diseaseChange.bind(this);
   }
+
+  diseaseChange(e){
+    console.log(e.target.dataset.disease);
+    this.props.onChangeDiseaseName(e.target.dataset.disease);
+  }
+
   render() {
-    const { showing } = this.state;
-    const subList = this.state.subs.map((subs, index) => (<a class="item" href onClick={() => this.setState({ showing: !showing, disease_name: subs })}>
-      {showing ? '' : ''} {subs}</a>)
+    const subs = this.props.subs;
+    const subList = subs.map((subs) => (<a class="item" href data-disease={subs} onClick={this.diseaseChange}>{subs}</a>)
     );
     return (
       <React.Fragment>
