@@ -6,16 +6,22 @@ class Submenu extends Component {
   constructor(props){
     super(props);
     this.changeInterviewList = this.changeInterviewList.bind(this);
+    this.changeCurrentInterview = this.changeCurrentInterview.bind(this);
   }
 
-  changeInterviewList(e){
-    this.props.onchangeInterviewList(e.target.value);
+  changeInterviewList(data){
+    console.log(data);
+    this.props.onChangeInterviewList(data); 
+  }
+
+  changeCurrentInterview(e){
+    this.props.onChangeCurrentInterview();/* 인자 바꿔야 */
   }
 
   async getData() {
-    const data = await axios.get(`http://api.roamgom.net/api/interview/${this.state.disease_name}/`)
-    console.log(data)
-    this.setState({interview_list: data.data.results })
+    const data = await axios.get(`http://api.roamgom.net/api/interview/${this.props.disease_name}/`)
+    console.log(data.data.results)
+    this.changeInterviewList(data.data.results);
  }
 
   render() {
@@ -34,7 +40,6 @@ class Submenu extends Component {
             <div class="header">{this.props.interview_list}</div>
             <div class="menu">
               {/* List 나열 */}
-              {/* <a class="item" href>{this.state.interview_list}</a> */}
             </div>
           </div>
         </div>

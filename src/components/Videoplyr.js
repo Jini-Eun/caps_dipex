@@ -7,7 +7,7 @@ class Videoplyr extends Component {
     return (
       <React.Fragment>
         <div id="container">
-          <div id="videop">
+          <div id="videop">caps
             <div class="title">
               <br />
               <strong class="strong">&emsp; {this.props.gender}</strong>&ensp;
