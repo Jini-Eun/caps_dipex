@@ -10,7 +10,6 @@ class Menu extends Component {
     this.changeInterviewList = this.changeInterviewList.bind(this);
   }
   changeCurrentInterview(e) {
-    console.log(e.target.dataset)
     this.props.onChangeCurrentInterview(e.target.dataset);
   }
   changeInterviewList() {
