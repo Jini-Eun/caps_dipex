@@ -3,12 +3,41 @@ import './Video.css';
 import './Menu.js';
 
 class Videoplyr extends Component {
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      source: this.props.videoUrl
+    };
+  }
+  changeSource(url) {
+    return () => {
+      this.setState({
+        source: url
+      });
+      document.getElementById("player").load();
+      this.Clip(url);
+    }
+  }
+  Clip(url) {
+    return (
+      <source
+        src={url}
+        type="video/mp4"
+      />
+    )
+  }
+  stopplay(url){
+    if(url !== this.state.source){
+      document.getElementById("player").pause();
+    }
+  }
   render() {
     const currentInterview = this.props.currentInterview;
+    const videoURL = this.props.videoUrl;
+
     return (
       <React.Fragment>
-        <div id="container">
+        <div id="container" onFocus={this.changeSource(videoURL)} onBlur={this.stopplay(videoURL)}>
           <div id="videop">
             <div className="title">
               <br />
@@ -21,27 +50,27 @@ class Videoplyr extends Component {
               <strong className="strong">&emsp; [진단 시 연령]</strong>&ensp; <span className="main">{currentInterview.age}</span>
               <br /><br />
             </div>
-            <div className="video">for video player<br /><br />
+            <div className="video">
               <link
                 rel="stylesheet"
                 href=" https://cdn.plyr.io/3.5.6/plyr.css "
               />
               <script src=" https://cdn.plyr.io/3.5.6/plyr.js ">
-                {" "}
               </script>
               <video
                 width="540px"
                 height="320px"
                 poster="/path/to/poster.jpg"
                 id="player"
+                ref="player"
                 playsInline
                 controls
-                controlsList="nodownload">
+                controlsList="nodownload"
+               >
                 <source
-                  src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4"
+                  src={videoURL}
                   type="video/mp4"
-                />{" "}
-                {/*.mp4 부분에 영상 src*/}
+                />
                 <track
                   kind="captions"
                   label="English captions"

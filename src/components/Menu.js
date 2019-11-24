@@ -6,10 +6,21 @@ class Menu extends Component {
   constructor(props){
     super(props);
     this.diseaseChange = this.diseaseChange.bind(this);
+    this.changeCurrentInterview = this.changeCurrentInterview.bind(this);
+    this.changeInterviewList = this.changeInterviewList.bind(this);
   }
-
+  changeCurrentInterview(e) {
+    console.log(e.target.dataset)
+    this.props.onChangeCurrentInterview(e.target.dataset);
+  }
+  changeInterviewList() {
+    this.props.onChangeInterviewList([]);
+  }
+  
   diseaseChange(e){
     this.props.onChangeDiseaseName(e.target.dataset.disease);
+    this.changeCurrentInterview(e);
+    this.changeInterviewList();
   }
 
   render() {
