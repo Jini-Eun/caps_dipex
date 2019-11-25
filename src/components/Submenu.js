@@ -19,8 +19,12 @@ class Submenu extends Component {
     this.props.onChangeCurrentInterview(e.target.dataset);
   }
 
-  async getData() {
+  async getInterviewList() {
     const data = await axios.get(`http://api.roamgom.net/api/interview/${this.props.disease_name}/`)
+    this.changeInterviewList(data.data.results);
+  }
+  async getInterviewListByAge() {
+    const data = await axios.get(`http://api.roamgom.net/api/interview/${this.props.disease_name}/age/`)
     this.changeInterviewList(data.data.results);
   }
 
@@ -36,8 +40,8 @@ class Submenu extends Component {
             <div className="item">
               <div className="header">인터뷰</div>
               <div className="menu">
-                <a className="item" href onClick={this.getData.bind(this)}>전체목록</a>
-                <a className="item" href >연령별</a>
+                <a className="item" href onClick={this.getInterviewList.bind(this)}>전체목록</a>
+                <a className="item" href onClick={this.getInterviewListByAge.bind(this)}>연령별</a>
               </div>
             </div>
             <div className="item">
