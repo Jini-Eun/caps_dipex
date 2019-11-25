@@ -55,7 +55,6 @@ class Videoplyr extends Component {
                 height="320px"
                 poster="/path/to/poster.jpg"
                 id="player"
-                ref="player"
                 playsInline
                 controls
                 controlsList="nodownload"
@@ -72,7 +71,7 @@ class Videoplyr extends Component {
                   default />
               </video>
             </div>
-            <div className="script"><p><strong>[Script about Video Player]</strong><br />{currentInterview.subtitle}</p></div>
+            <div className="script"><p>{currentInterview.subtitle}</p></div>
           </div>
         </div>
       </Fragment>

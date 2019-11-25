@@ -38,7 +38,7 @@ class Menu extends Component {
         <div id="foot">
           <hr />
           <strong>copyrightⓒ 2019. Team dipex(by.김은진, 김지형, 정유경, 조창연). All rights reserved. <br />Dankook University Capstone Design</strong>
-          <br /><br />powered by <a href="https://plyr.io/"><strong>plyr</strong></a><br /><br />
+          <br /><br />powered by <a href="https://plyr.io/"><strong>plyr</strong></a><br />
         </div>
       </Fragment>
     );
