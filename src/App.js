@@ -41,10 +41,21 @@ class App extends Component {
 
     return (
       <div>
-        <Menu error="Unable to mount image" subs={subs} onChangeDiseaseName={this.changeDiseaseName} onChangeCurrentInterview={this.changeCurrentInterview} onChangeInterviewList={this.changeInterviewList}/>
-        <Submenu interview_list={interview_list} disease_name={disease_name} onChangeCurrentInterview={this.changeCurrentInterview} onChangeInterviewList={this.changeInterviewList}/>
-        <Videoplyr currentInterview={currentInterview} disease_name={disease_name} videoUrl={path} />
-        
+        <Menu
+          error="Unable to mount image"
+          subs={subs}
+          onChangeDiseaseName={this.changeDiseaseName}
+          onChangeCurrentInterview={this.changeCurrentInterview}
+          onChangeInterviewList={this.changeInterviewList} />
+        <Submenu
+          interview_list={interview_list}
+          disease_name={disease_name}
+          onChangeCurrentInterview={this.changeCurrentInterview}
+          onChangeInterviewList={this.changeInterviewList} />
+        <Videoplyr
+          currentInterview={currentInterview}
+          disease_name={disease_name}
+          videoUrl={path} />
       </div>
     );
   }
