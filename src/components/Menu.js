@@ -29,8 +29,8 @@ class Menu extends Component {
     return (
       <React.Fragment>
         <div id="menubar">
-          <div className="ui menu">
-            <img src={logo} alt={this.props.error} />
+          <div className="ui secondary pointing menu">
+            <img height="60px" src={logo} alt={this.props.error} />
             <div className="item"></div>
             {subList}
           </div>

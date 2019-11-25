@@ -15,7 +15,7 @@ class App extends Component {
       disease_name: "",
       interview_list: [],
       currentInterview: [],
-      subs: ["당뇨병", "유방암", "위암"],
+      subs: ["당뇨병", "유방암", "위암", "우울증", "호스피스 완화의료", "치매"],
     }
   }
 
@@ -28,7 +28,6 @@ class App extends Component {
   changeCurrentInterview(currentInterview) {
     this.setState({ currentInterview });
   }
-  
 
   render() {
     const subs = this.state.subs;
