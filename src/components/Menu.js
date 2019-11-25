@@ -9,9 +9,11 @@ class Menu extends Component {
     this.changeCurrentInterview = this.changeCurrentInterview.bind(this);
     this.changeInterviewList = this.changeInterviewList.bind(this);
   }
+  
   changeCurrentInterview(e) {
     this.props.onChangeCurrentInterview(e.target.dataset);
   }
+
   changeInterviewList() {
     this.props.onChangeInterviewList([]);
   }
@@ -24,8 +26,15 @@ class Menu extends Component {
 
   render() {
     const subs = this.props.subs;
-    const subList = subs.map((subs, index) => (<a className="item" key={index} href data-disease={subs} onClick={this.diseaseChange}>{subs}</a>)
-    );
+    const subList = subs.map((subs, index) => (
+      <a className="item" href 
+        key={index} 
+        data-disease={subs}
+        onClick={this.diseaseChange}>
+          {subs}
+      </a>
+    ));
+
     return (
       <Fragment>
         <div id="menubar">
@@ -37,8 +46,9 @@ class Menu extends Component {
         </div>
         <div id="foot">
           <hr />
-          <strong>copyrightⓒ 2019. Team dipex(by.김은진, 김지형, 정유경, 조창연). All rights reserved. <br />Dankook University Capstone Design</strong>
-          <br /><br />powered by <a href="https://plyr.io/"><strong>plyr</strong></a><br />
+          <strong>copyrightⓒ 2019. Team dipex(by.김은진, 김지형, 정유경, 조창연). All rights reserved. 
+            <br />Dankook University Capstone Design</strong><br />
+            <br />powered by <a href="https://plyr.io/"><strong>Plyr</strong></a><br />
         </div>
       </Fragment>
     );

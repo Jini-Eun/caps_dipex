@@ -30,17 +30,20 @@ class Videoplyr extends Component {
 
     return (
       <Fragment>
-        <div id="container" onFocus={this.changeSource(videoURL)} onBlur={this.stopplay(videoURL)}>
+        <div id="container"
+          onFocus={this.changeSource(videoURL)}
+          onBlur={this.stopplay(videoURL)}>
           <div id="videop">
             <div className="title">
               <br />
-              <strong className="strong">&emsp; [성별]</strong>&ensp;
+              <strong className="strong">&emsp;[성별]</strong>&ensp;
                 <span className="main">{currentInterview.name}</span>
               <br /><br />
-              <strong className="strong">&emsp; [인터뷰 당시 연령]</strong>&ensp;
+              <strong className="strong">&emsp;[인터뷰 당시 연령]</strong>&ensp;
                 <span className="main">{currentInterview.interviewage}</span>
               <br /><br />
-              <strong className="strong">&emsp; [진단 시 연령]</strong>&ensp; <span className="main">{currentInterview.age}</span>
+              <strong className="strong">&emsp;[진단 시 연령]</strong>&ensp;
+                <span className="main">{currentInterview.age}</span>
               <br /><br />
             </div>
             <div className="video">
@@ -71,7 +74,9 @@ class Videoplyr extends Component {
                   default />
               </video>
             </div>
-            <div className="script"><p>{currentInterview.subtitle}</p></div>
+            <div className="script">
+              <p>{currentInterview.subtitle}</p>
+            </div>
           </div>
         </div>
       </Fragment>

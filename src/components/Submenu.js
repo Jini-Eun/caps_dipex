@@ -30,8 +30,19 @@ class Submenu extends Component {
 
   render() {
     const interview_list = this.props.interview_list;
-    const interviewList = interview_list.map((interview_list, index) => (<a className="item" href key={index} data-disease_name={interview_list.disease.disease_name} data-name={interview_list.person.name} data-interviewage={interview_list.interviewee_age} data-age={interview_list.diagnosis_age} data-videopath={interview_list.video_path_encrypt} data-subtitle={interview_list.subtitle} onClick={this.changeCurrentInterview}>{interview_list.title}</a>)
-    );
+    const interviewList = interview_list.map((interview_list, index) => (
+      <a className="item" href
+        key={index}
+        data-disease_name={interview_list.disease.disease_name}
+        data-name={interview_list.person.name}
+        data-interviewage={interview_list.interviewee_age}
+        data-age={interview_list.diagnosis_age}
+        data-videopath={interview_list.video_path_encrypt}
+        data-subtitle={interview_list.subtitle}
+        onClick={this.changeCurrentInterview}>
+          {interview_list.title}
+      </a>
+    ));
 
     return (
       <Fragment>

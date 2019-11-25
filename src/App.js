@@ -15,7 +15,7 @@ class App extends Component {
       disease_name: "",
       interview_list: [],
       currentInterview: [],
-      subs: ["당뇨병", "유방암", "위암", "우울증", "호스피스 완화의료", "치매"],
+      subs: ["당뇨병", "유방암", "위암", "우울증", "호스피스 완화의료", "치매"]
     }
   }
 
@@ -35,7 +35,7 @@ class App extends Component {
     const interview_list = this.state.interview_list;
     const currentInterview = this.state.currentInterview;
     /*const videourl = this.state.videourl;*/
-    var media = "http://api.roamgom.net/media/"
+    let media = "http://api.roamgom.net/media/"
     const videopath = currentInterview.videopath;
     const path = media.concat(videopath);
 
